@@ -9,7 +9,7 @@ class Scraper
   end
 
   def text(selector:)
-    document.at_css(selector)
+    document.at_css(selector).text
   end
 
   def present?(selector:)
