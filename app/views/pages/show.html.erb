@@ -1,13 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<%= link_to "← Back to pages", pages_path, class: "btn btn-ghost" %>
 
 <%= render @page %>
 
-<div>
-  <%= link_to "Edit this page", edit_page_path(@page) %> |
-  <%= link_to "Back to pages", pages_path %>
-
-  <%= button_to "Destroy this page", @page, method: :delete %>
-  <%= button_to "Run", page_check_path(@page) %>
+<div class="flex gap-3">
+  <%= link_to "Edit this page", edit_page_path(@page), class: "btn btn-primary" %>
+  <%= button_to "Destroy this page", @page, method: :delete, class: "btn btn-error" %>
+  <%= button_to "Run", page_check_path(@page), class: "btn btn-success" %>
 </div>
 
 <h4>Results</h4>

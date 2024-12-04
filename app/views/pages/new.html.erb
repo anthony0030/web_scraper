@@ -1,9 +1,9 @@
+<div>
+  <%= link_to "← Back to pages", pages_path, class: "btn btn-ghost" %>
+</div>
+
 <h1>New page</h1>
 
-<%= render "form", page: @page %>
-
-<br>
-
-<div>
-  <%= link_to "Back to pages", pages_path %>
+<div class="container">
+  <%= render "form", page: @page %>
 </div>

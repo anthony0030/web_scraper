@@ -2,13 +2,10 @@
 
 <h1>Pages</h1>
 
-<div id="pages">
+<div id="pages" class="flex gap-5 mb-5">
   <% @pages.each do |page| %>
     <%= render page %>
-    <p>
-      <%= link_to "Show this page", page %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New page", new_page_path %>
+<%= link_to "New page", new_page_path, class: "btn btn-success" %>

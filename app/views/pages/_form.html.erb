@@ -11,27 +11,42 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :url, style: "display: block" %>
-    <%= form.text_field :url %>
+
+<label class="form-control w-full max-w-xs">
+  <div class="label">
+    <span class="label-text">What is your name?</span>
+  </div>
+  <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+</label>
+
+
+  <div class="form-control w-full max-w-xs">
+    <%= form.label :url, class: "label-text" %>
+    <%= form.text_field :url,  class: "input input-bordered w-full max-w-xs" %>
   </div>
 
-  <div>
+  <div class="form-control w-full max-w-xs">
     <%= form.label :check_type, style: "display: block" %>
-    <%= form.select :check_type, [["Text", "text"], ["Presence", "presence"], ["Absence", "absence"]] %>
+    <%= form.select(
+      :check_type,
+      [["Text", "text"], ["Presence", "presence"], ["Absence", "absence"]],
+      {},
+      { class: "select select-bordered w-full max-w-xs" }
+    ) %>
   </div>
 
-  <div>
+  <div class="form-control w-full max-w-xs">
     <%= form.label :selector, style: "display: block" %>
-    <%= form.text_field :selector %>
+    <%= form.text_field :selector, class: "input input-bordered w-full max-w-xs"  %>
   </div>
 
-  <div>
+  <div class="form-control w-full max-w-xs">
     <%= form.label :match_text, style: "display: block" %>
-    <%= form.text_field :match_text %>
+    <%= form.text_field :match_text, class: "input input-bordered w-full max-w-xs"  %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", page.persisted? ? page : pages_path, class: "btn btn-error" %>
   </div>
 <% end %>
