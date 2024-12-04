@@ -1,3 +1,15 @@
 
 Style/Documentation:
   Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Layout/CaseIndentation:
+  Enabled: false
+
+Layout/EndAlignment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false

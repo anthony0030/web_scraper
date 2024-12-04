@@ -11,42 +11,32 @@
     </div>
   <% end %>
 
-
-<label class="form-control w-full max-w-xs">
-  <div class="label">
-    <span class="label-text">What is your name?</span>
-  </div>
-  <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-</label>
-
-
-  <div class="form-control w-full max-w-xs">
-    <%= form.label :url, class: "label-text" %>
-    <%= form.text_field :url,  class: "input input-bordered w-full max-w-xs" %>
-  </div>
-
-  <div class="form-control w-full max-w-xs">
-    <%= form.label :check_type, style: "display: block" %>
-    <%= form.select(
-      :check_type,
-      [["Text", "text"], ["Presence", "presence"], ["Absence", "absence"]],
-      {},
-      { class: "select select-bordered w-full max-w-xs" }
-    ) %>
-  </div>
-
-  <div class="form-control w-full max-w-xs">
-    <%= form.label :selector, style: "display: block" %>
-    <%= form.text_field :selector, class: "input input-bordered w-full max-w-xs"  %>
-  </div>
-
-  <div class="form-control w-full max-w-xs">
-    <%= form.label :match_text, style: "display: block" %>
-    <%= form.text_field :match_text, class: "input input-bordered w-full max-w-xs"  %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, placeholder: "My website" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-primary" %>
-    <%= link_to "Cancel", page.persisted? ? page : pages_path, class: "btn btn-error" %>
+    <%= form.label :url, style: "display: block" %>
+    <%= form.url_field :url, placeholder: "https://example.org/..." %>
+  </div>
+
+  <div>
+    <%= form.label :check_type, style: "display: block" %>
+    <%= form.select :check_type, [["Text", "text"], ["Exists", "exists"], ["Not exists", "not_exists"]] %>
+  </div>
+
+  <div>
+    <%= form.label :selector, style: "display: block" %>
+    <%= form.text_field :selector, placeholder: ".class" %>
+  </div>
+
+  <div>
+    <%= form.label :match_text, style: "display: block" %>
+    <%= form.text_field :match_text, placeholder: "text to match" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit class: "border border-gray-200 rounded shadow px-2 py-1 hover:bg-gray-100"%>
   </div>
 <% end %>

@@ -1,28 +1,10 @@
-<div id="<%= dom_id page %>" class="card bg-white">
-  <div class="card-body shadow-xl">
-    <p>
-      <strong>Url:</strong>
-      <%= page.url %>
-    </p>
-
-    <p>
-      <strong>Check type:</strong>
-      <%= page.check_type %>
-    </p>
-
-    <p>
-      <strong>Selector:</strong>
-      <%= page.selector %>
-    </p>
-
-    <p>
-      <strong>Match text:</strong>
-      <%= page.match_text %>
-    </p>
+<%= link_to page, id: dom_id(page), class: "p-4 -mx-4 hover:bg-gray-100" do %>
+  <div class="flex justify-between">
+    <div>
+      <h5 class="font-bold"><%= page.name %></h5>
+      <div class="text-sm text-gray-700"><%= page.url %></div>
+    </div>
+    
+    <%= render page.last_result %>
   </div>
-
-  <% unless request.path == page_path(page) %>
-    <%= link_to "Show this page", page, class: "btn btn-primary" %>
-  <% end %>
-
-</div>
+<% end %>

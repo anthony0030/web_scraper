@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   # GET /pages or /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.includes(:last_result)
   end
 
   # GET /pages/1 or /pages/1.json
@@ -25,7 +25,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: "Page was successfully created." }
+        format.html { redirect_to page_url(@page), notice: "Page was successfully created." }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: "Page was successfully updated." }
+        format.html { redirect_to page_url(@page), notice: "Page was successfully updated." }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
     @page.destroy!
 
     respond_to do |format|
-      format.html { redirect_to pages_path, status: :see_other, notice: "Page was successfully destroyed." }
+      format.html { redirect_to pages_url, notice: "Page was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:url, :check_type, :selector, :match_text)
+      params.require(:page).permit(:name, :url, :check_type, :selector, :match_text)
     end
 end
